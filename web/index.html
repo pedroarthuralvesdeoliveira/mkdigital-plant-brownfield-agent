@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MKdigital — Plant Brownfield Reconstruction Agent (Project B) | Pedro de Oliveira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="brand-badge">MKdigital · Project B</span>
+        <div>
+          <h1>Plant Brownfield Reconstruction Agent — GraphDB</h1>
+          <p class="subtitle">Adjacency-List Graph · BFS Traversal · Specification Pattern · Explicit State Machine — Built by <strong>Pedro de Oliveira</strong></p>
+        </div>
+      </div>
+      <div class="header-links">
+        <a href="https://mkdigital-bookkeeping-assistant.pedroarthuralvesdeoliveira1.workers.dev" target="_blank" rel="noopener" class="btn btn-outline">← Open Project A (Bookkeeping)</a>
+        <a href="https://github.com/pedroarthuralvesdeoliveira/mkdigital-plant-brownfield-agent" target="_blank" rel="noopener" class="btn btn-outline">GitHub Repo</a>
+        <a href="https://github.com/pedroarthuralvesdeoliveira/AI-Contract-Risk-Analysis-Agent" target="_blank" rel="noopener" class="btn btn-primary">AI Contract Risk Agent</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <div>
+        <h2>Industrial Brownfield Digital Reconstruction (P&amp;ID + E&amp;I + Field Nameplates)</h2>
+        <p>Reconstructs a directed engineering property graph from Piping &amp; Instrumentation Diagrams (<code>P&amp;ID</code>), Electrical &amp; Instrumentation wiring schematics (<code>E&amp;I</code>), and field nameplate OCR. Click any ISA-5.1 node in the topology to inspect specifications, incident edges, and cross-document anomalies.</p>
+      </div>
+      <div class="filter-bar">
+        <button class="chip active" data-filter="ALL">All Nodes (9)</button>
+        <button class="chip" data-filter="EQUIPMENT">Equipment</button>
+        <button class="chip" data-filter="INSTRUMENT">Instruments</button>
+        <button class="chip" data-filter="VALVE">Valves</button>
+        <button class="chip" data-filter="ELECTRICAL">Electrical &amp; PLC</button>
+      </div>
+    </section>
+
+    <section class="state-ribbon" aria-label="Reconstruction State Machine">
+      <span class="kv-label" style="font-size:0.82rem; font-weight:600;">Explicit State Machine Transition Path:</span>
+      <div class="state-steps">
+        <span class="state-pill">RAW_DOCUMENTS_LOADED</span>
+        <span style="color:#9c9c9c">→</span>
+        <span class="state-pill">ENTITIES_EXTRACTED</span>
+        <span style="color:#9c9c9c">→</span>
+        <span class="state-pill">TOPOLOGY_LINKED</span>
+        <span style="color:#9c9c9c">→</span>
+        <span class="state-pill">ANOMALIES_EVALUATED</span>
+        <span style="color:#9c9c9c">→</span>
+        <span class="state-pill">CYPHER_EXPORTED</span>
+      </div>
+    </section>
+
+    <div class="grid-brownfield">
+      <article class="card">
+        <div class="card-header">
+          <span class="pill">Zurich Pilot Chemical Feed Unit — Area 100</span>
+          <span class="legend-inline">
+            <span><span class="dot" style="background:#70befa"></span>Equipment</span>
+            <span><span class="dot" style="background:#34d399"></span>Instrument</span>
+            <span><span class="dot" style="background:#fbbf24"></span>Valve</span>
+            <span><span class="dot" style="background:#c084fc"></span>Electrical/PLC</span>
+            <span><span class="dot" style="background:#f87171"></span>Anomaly</span>
+          </span>
+        </div>
+        <div class="svg-wrapper">
+          <svg id="plant-svg" viewBox="0 0 860 430" aria-label="Interactive Plant Engineering Graph"></svg>
+        </div>
+      </article>
+
+      <div class="side-stack">
+        <article class="card" style="margin-bottom:0">
+          <div class="card-header">
+            <span class="pill">ISA-5.1 Entity Inspector</span>
+            <span id="bf-node-conf" class="pill"></span>
+          </div>
+          <div id="bf-inspector"></div>
+        </article>
+
+        <article class="card" style="margin-bottom:0">
+          <div class="card-header">
+            <span class="pill pill-red">Specification Pattern Anomaly Rules (2)</span>
+          </div>
+          <div id="bf-anomalies" class="anomaly-list"></div>
+        </article>
+      </div>
+    </div>
+
+    <article class="card">
+      <div class="card-header">
+        <span class="pill">GraphDB Cypher Export (Neo4j / Memgraph)</span>
+        <button id="btn-copy-cypher" class="btn btn-outline" style="padding:5px 12px; font-size:0.78rem;">Copy Cypher</button>
+      </div>
+      <pre id="bf-cypher-code" class="code-block"></pre>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span><strong>Pedro Arthur Alves de Oliveira</strong> · Active CNPJ: 63.073.459/0001-35 · <a href="mailto:pedroarthuralvesdeoliveira1@gmail.com">pedroarthuralvesdeoliveira1@gmail.com</a></span>
+      <span>FastAPI · Adjacency-List GraphDB · Pytest · Deployed on Cloudflare Pages</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
